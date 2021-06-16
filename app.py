@@ -32,11 +32,11 @@ def upload():
             "-c", ".setpdfwrite",
             "-f", inputFile
         ]
-        proc = subprocess.Popen(args, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=None)
+        proc = subprocess.Popen(args, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         def stream_out():
             try:
-                outs, err = proc.communicate()
+                outs, err = proc.communicate(timeout=600)
                 yield outs
             except TimeoutExpired:
                 proc.kill()
