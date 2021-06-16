@@ -36,7 +36,7 @@ def upload():
 
         def stream_out():
             try:
-                outs, err = proc.communicate(timeout=600)
+                outs, err = proc.communicate()
                 yield outs
             except TimeoutExpired:
                 proc.kill()
