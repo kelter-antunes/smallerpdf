@@ -32,7 +32,7 @@ def upload():
             "-c", ".setpdfwrite",
             "-f", inputFile
         ]
-        proc = subprocess.Popen(args, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc = subprocess.Popen(args, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=None)
 
         def stream_out():
             try:
